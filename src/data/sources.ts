@@ -44,6 +44,13 @@ export const LEGAL_SOURCES: Record<LegalSourceId, LegalSource> = {
     url: "https://www.boe.es/buscar/act.php?id=BOE-A-2026-3212",
     note: "Para consumidores persona física, la venta telefónica energética no solicitada tiene requisitos especialmente restrictivos.",
   },
+  CNMC_ENERGY_2026: {
+    id: "CNMC_ENERGY_2026",
+    authority: "CNMC",
+    title: "Obligaciones de las comercializadoras eléctricas en contratación telefónica",
+    url: "https://www.cnmc.es/prensa/consulta-obligaciones-electricidad-20260610",
+    note: "La CNMC recuerda que las comercializadoras no pueden realizar llamadas comerciales o de contratación no solicitadas sin una petición expresa, inequívoca e informada del consumidor.",
+  },
   BOE_400: {
     id: "BOE_400",
     authority: "BOE",
