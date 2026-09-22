@@ -7,8 +7,11 @@ La V1 reserva un bloque de publicidad entre el hero y la herramienta.
 - Proporción recomendada: 1200 × 180 px.
 - En móvil el contenedor se adapta sin romper la composición.
 
-## Integración final
+## Integración
 
-El componente actual es `src/components/PromoBanner.tsx` y muestra un placeholder visual. Cuando exista la creatividad definitiva puede sustituirse por una imagen responsive o por un bloque HTML manteniendo el mismo contenedor.
+- Creatividad: `public/banner-colabora-mejoradora.webp` (1600 × 245 px, WebP optimizado).
+- Componente: `src/components/PromoBanner.tsx`.
+- Destino centralizado: `src/config/promo.ts`.
+- Evento: `promo_click`, con las propiedades categóricas `campaign` y `destination`.
 
-El evento de analítica debe renombrarse de `promo_placeholder_click` a `promo_click` y registrar, como mínimo, `campaign` y `destination`.
+La URL del banner no se incluye en las propiedades de analítica para evitar enviar el número de teléfono a PostHog.

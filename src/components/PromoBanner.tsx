@@ -1,27 +1,33 @@
 "use client";
 
+import Image from "next/image";
+import { PROMO_CAMPAIGN, PROMO_URL } from "@/config/promo";
 import { track } from "@/lib/analytics";
 
 export function PromoBanner() {
   return (
-    <section className="promo-shell" aria-label="Espacio publicitario reservado">
-      <div className="promo-slot">
-        <div className="promo-slot__glow" />
-        <div className="promo-slot__eyebrow">ESPACIO PUBLICITARIO · 1200 × 180</div>
-        <div className="promo-slot__content">
-          <div>
-            <strong>Tu banner irá aquí.</strong>
-            <span>Preparado para sustituir esta pieza por una creatividad final sin tocar el layout.</span>
-          </div>
-          <button
-            type="button"
-            className="promo-slot__button"
-            onClick={() => track("promo_placeholder_click")}
-          >
-            Banner reservado
-          </button>
-        </div>
-      </div>
+    <section className="promo-shell" aria-label="Colabora con Mejoradora Granada">
+      <a
+        className="promo-banner"
+        href={PROMO_URL}
+        target="_blank"
+        rel="noreferrer"
+        onClick={() =>
+          track("promo_click", {
+            campaign: PROMO_CAMPAIGN,
+            destination: "whatsapp",
+          })
+        }
+      >
+        <Image
+          className="promo-banner__image"
+          src="/banner-colabora-mejoradora.webp"
+          alt="Colabora con Mejoradora Granada: gana más con los clientes que ya tienes"
+          width={1600}
+          height={245}
+          sizes="(max-width: 620px) calc(100vw - 24px), (max-width: 900px) calc(100vw - 52px), 1420px"
+        />
+      </a>
     </section>
   );
 }

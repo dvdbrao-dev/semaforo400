@@ -38,7 +38,7 @@ Consulta `docs/ANALYTICS.md`.
 
 ## Banner
 
-Hay un espacio publicitario premium reservado justo después del hero, preparado para una creatividad 1200 × 180 px.
+El banner de colaboración con Mejoradora Granada aparece justo después del hero y enlaza a su WhatsApp oficial.
 
 Consulta `docs/BANNER.md`.
 

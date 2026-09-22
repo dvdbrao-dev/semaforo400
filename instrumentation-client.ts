@@ -10,7 +10,25 @@ if (token && host) {
     autocapture: false,
     capture_pageview: true,
     capture_pageleave: true,
+    capture_dead_clicks: false,
+    capture_exceptions: false,
+    capture_heatmaps: false,
+    capture_performance: false,
     disable_session_recording: true,
-    person_profiles: "identified_only",
+    mask_all_element_attributes: true,
+    mask_all_text: true,
+    person_profiles: "never",
+    property_denylist: [
+      "name",
+      "email",
+      "phone",
+      "telefono",
+      "nif",
+      "cups",
+      "message",
+      "text",
+    ],
   });
+
+  window.posthog = posthog;
 }

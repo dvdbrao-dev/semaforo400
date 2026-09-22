@@ -29,7 +29,7 @@ Estas variables se configuran en Vercel. El Project Token de PostHog es un token
 - `tool_result`: resultado del semáforo con estado y categorías del caso.
 - `tool_reset`: reinicio del formulario.
 - `source_click`: apertura de una fuente oficial.
-- `promo_placeholder_click`: interacción con el espacio publicitario provisional.
+- `promo_click`: clic en el banner de colaboración; solo envía campaña y tipo de destino, nunca el teléfono o la URL.
 
 PostHog añade además pageviews/pageleaves para Web Analytics.
 
