@@ -31,7 +31,7 @@ export function evaluateLead(context: LeadContext): Decision {
       ],
       checks: withCommonChecks(energyChecks),
       sourceIds: sector === "energy"
-        ? ["ENERGY_RD88", "AEPD_RIGHTS", "AEPD_EXCLUSION", "BOE_400"]
+        ? ["ENERGY_RD88", "CNMC_ENERGY_2026", "AEPD_RIGHTS", "AEPD_EXCLUSION", "BOE_400"]
         : ["AEPD_GENERAL", "AEPD_RIGHTS", "AEPD_EXCLUSION", "BOE_400"],
       ruleIds: [sector === "energy" ? "CONSENT-ENERGY" : "CONSENT-GENERAL"],
     };
@@ -51,7 +51,7 @@ export function evaluateLead(context: LeadContext): Decision {
         "Obtén una petición expresa antes de realizar la llamada comercial.",
         "No tomes la mera existencia del teléfono en una web, un referido o una base externa como autorización suficiente.",
       ]),
-      sourceIds: ["ENERGY_RD88", "AEPD_GENERAL", "AEPD_RIGHTS", "BOE_400"],
+      sourceIds: ["ENERGY_RD88", "CNMC_ENERGY_2026", "AEPD_GENERAL", "AEPD_RIGHTS", "BOE_400"],
       ruleIds: ["ENERGY-CONSUMER-NO-REQUEST"],
     };
   }
@@ -108,7 +108,7 @@ export function evaluateLead(context: LeadContext): Decision {
         "Obtén una petición expresa, inequívoca e informada antes de llamar.",
         "Si el suministro está a nombre de una sociedad mercantil y no de la persona física, vuelve a evaluar el caso como empresa.",
       ]),
-      sourceIds: ["ENERGY_RD88", "AEPD_B2B", "AEPD_RIGHTS", "BOE_400"],
+      sourceIds: ["ENERGY_RD88", "CNMC_ENERGY_2026", "AEPD_B2B", "AEPD_RIGHTS", "BOE_400"],
       ruleIds: ["ENERGY-SELF-EMPLOYED-NO-REQUEST"],
     };
   }
