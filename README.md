@@ -10,7 +10,7 @@ Herramienta visual de Mejoradora Granada para revisar, en cinco preguntas, el co
 - CSS propio
 - Motion
 - Vitest
-- Umami opcional para analítica
+- PostHog Cloud EU para Product Analytics + Web Analytics
 
 ## Principios
 
@@ -32,13 +32,13 @@ npm run build
 
 ## Analítica
 
-Copia `.env.example` a `.env.local` y configura el ID de Umami. Sin esas variables, la web funciona normalmente pero no carga analítica.
+Copia `.env.example` a `.env.local` y configura el Project Token de PostHog Cloud EU. Sin esas variables, la web funciona normalmente pero no carga analítica.
 
 Consulta `docs/ANALYTICS.md`.
 
 ## Banner
 
-Hay un espacio publicitario premium reservado justo después del hero, preparado para una creatividad 1200 × 180 px.
+El banner de colaboración con Mejoradora Granada aparece justo después del hero y enlaza a su WhatsApp oficial.
 
 Consulta `docs/BANNER.md`.
 
