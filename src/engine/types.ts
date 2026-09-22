@@ -25,6 +25,7 @@ export type LegalSourceId =
   | "AEPD_RIGHTS"
   | "AEPD_EXCLUSION"
   | "ENERGY_RD88"
+  | "CNMC_ENERGY_2026"
   | "BOE_400"
   | "CNMC_400";
 
