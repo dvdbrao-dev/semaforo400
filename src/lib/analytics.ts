@@ -1,14 +1,10 @@
-export type AnalyticsPayload = Record<string, string | number | boolean | undefined>;
+import posthog from "posthog-js";
 
-declare global {
-  interface Window {
-    umami?: {
-      track: (event: string, data?: AnalyticsPayload) => void;
-    };
-  }
-}
+export type AnalyticsPayload = Record<string, string | number | boolean | undefined>;
 
 export function track(event: string, data?: AnalyticsPayload) {
   if (typeof window === "undefined") return;
-  window.umami?.track(event, data);
+  if (!process.env.NEXT_PUBLIC_POSTHOG_PROJECT_TOKEN) return;
+
+  posthog.capture(event, data);
 }
