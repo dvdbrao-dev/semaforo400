@@ -2,8 +2,8 @@ export function HowItWorks() {
   return (
     <section className="how-section" id="como-funciona">
       <div className="section-heading">
-        <span className="kicker">CÓMO FUNCIONA</span>
-        <h2>No interpreta intenciones.<br />Aplica reglas visibles.</h2>
+        <h2>Cómo decide el semáforo</h2>
+        <p>Aplica reglas fijas escritas a partir de las fuentes oficiales. No hay una IA interpretando tu caso: las mismas respuestas dan siempre el mismo resultado.</p>
       </div>
       <div className="how-grid">
         <article>

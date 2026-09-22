@@ -1,5 +1,6 @@
 "use client";
 
+import { PROMO_CAMPAIGN, PROMO_URL } from "@/config/promo";
 import { LEGAL_SOURCES } from "@/data/sources";
 import type { Decision } from "@/engine/types";
 import { track } from "@/lib/analytics";
@@ -59,7 +60,7 @@ export function ResultCard({ decision }: Props) {
       <div className="result-section">
         <span className="result-section__label">ANTES DE LLAMAR</span>
         <ul>
-          {decision.checks.slice(0, 5).map((check) => <li key={check}>{check}</li>)}
+          {decision.checks.slice(0, 6).map((check) => <li key={check}>{check}</li>)}
         </ul>
       </div>
 
@@ -82,8 +83,23 @@ export function ResultCard({ decision }: Props) {
       </div>
 
       <p className="result-disclaimer">
-        Orientación general basada en fuentes oficiales. No sustituye asesoramiento jurídico ni una revisión del caso concreto.
+        Esto es una orientación general, no asesoramiento jurídico. Antes de llamar, revisa tu caso con las fuentes enlazadas o con tu asesor.
       </p>
+
+      <div className="result-promo">
+        <p>
+          <b>¿Vendes a empresas o autónomos?</b> Muchos de tus clientes pagan de más en luz. Si nos los presentas,
+          revisamos sus facturas y tú te llevas una comisión.
+        </p>
+        <a
+          href={PROMO_URL}
+          target="_blank"
+          rel="noreferrer"
+          onClick={() => track("promo_click", { campaign: PROMO_CAMPAIGN, destination: "whatsapp", location: "result" })}
+        >
+          Hablar con Mejoradora Granada por WhatsApp
+        </a>
+      </div>
     </aside>
   );
 }

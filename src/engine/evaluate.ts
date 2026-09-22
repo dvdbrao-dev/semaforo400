@@ -4,6 +4,7 @@ const commonChecks = [
   "Identifica a la empresa y explica la finalidad comercial al inicio de la llamada.",
   "Respeta cualquier oposición o revocación de consentimiento de forma inmediata.",
   "Comprueba los sistemas de exclusión publicitaria cuando resulten aplicables.",
+  "Desde el 17 de octubre de 2026, comprueba si tu empresa debe llamar desde un número del rango 400.",
 ];
 
 function withCommonChecks(checks: string[]): string[] {
@@ -13,7 +14,7 @@ function withCommonChecks(checks: string[]): string[] {
 export function evaluateLead(context: LeadContext): Decision {
   const { target, sector, origin, requestedContact, previousRelationship } = context;
 
-  if (requestedContact || origin === "request") {
+  if (requestedContact) {
     const energyChecks = sector === "energy"
       ? [
           "En energía, conserva prueba de la petición expresa, inequívoca, informada y para una finalidad específica.",
@@ -34,6 +35,31 @@ export function evaluateLead(context: LeadContext): Decision {
         ? ["ENERGY_RD88", "CNMC_ENERGY_2026", "AEPD_RIGHTS", "AEPD_EXCLUSION", "BOE_400"]
         : ["AEPD_GENERAL", "AEPD_RIGHTS", "AEPD_EXCLUSION", "BOE_400"],
       ruleIds: [sector === "energy" ? "CONSENT-ENERGY" : "CONSENT-GENERAL"],
+    };
+  }
+
+  const hasPreviousRelationship =
+    previousRelationship || origin === "current-client" || origin === "former-client";
+
+  // RD 88/2026, art. 13.y: la prohibición para personas físicas se aplica
+  // "sin perjuicio del interés legítimo" de la Circular 1/2023 de la AEPD.
+  if ((target === "consumer" || target === "self-employed") && sector === "energy" && hasPreviousRelationship) {
+    return {
+      status: "amber",
+      title: "Revisa antes de llamar",
+      summary: "En energía, llamar a una persona física sin petición expresa está prohibido, salvo que exista un interés legítimo por relación comercial previa. Tienes que poder demostrarlo.",
+      reasons: [
+        "El destinatario es una persona física.",
+        "La finalidad es comercial y energética y no consta una petición expresa.",
+        "Existe o ha existido relación comercial, lo que podría amparar un interés legítimo.",
+      ],
+      checks: withCommonChecks([
+        "Comprueba que el interés legítimo cumple las condiciones de la Circular 1/2023: relación previa y oferta de productos similares.",
+        "Graba la llamada completa: en energía es obligatorio, la inicies tú o el cliente.",
+        "Si no puedes documentar la relación previa, trátalo como rojo.",
+      ]),
+      sourceIds: ["ENERGY_RD88", "CNMC_ENERGY_2026", "AEPD_GENERAL", "BOE_400"],
+      ruleIds: ["ENERGY-NATURAL-PERSON-LEGITIMATE-INTEREST"],
     };
   }
 
