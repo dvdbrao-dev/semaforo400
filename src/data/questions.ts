@@ -8,8 +8,7 @@ export const TARGET_OPTIONS: { value: Target; label: string; hint: string }[] = 
 
 export const SECTOR_OPTIONS: { value: Sector; label: string; hint: string }[] = [
   { value: "energy", label: "Energía", hint: "Luz, gas o servicios energéticos" },
-  { value: "telecom", label: "Telefonía", hint: "Fibra, móvil o comunicaciones" },
-  { value: "other", label: "Otro", hint: "Cualquier otro producto o servicio" },
+  { value: "other", label: "Otro producto o servicio", hint: "Cualquier otro producto o servicio" },
 ];
 
 export const ORIGIN_OPTIONS: { value: Origin; label: string }[] = [

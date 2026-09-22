@@ -7,9 +7,9 @@ export function SourcesSection() {
   return (
     <section className="sources-section" id="fuentes">
       <div className="section-heading section-heading--sources">
-        <span className="kicker">FUENTES</span>
-        <h2>Que puedas comprobarlo<br />vale más que una opinión.</h2>
-        <p>La herramienta está pensada para ser conservadora: cuando faltan datos relevantes, no convierte una duda en un “sí”.</p>
+        <h2>Fuentes oficiales</h2>
+        <p>Cada resultado enlaza a estas páginas para que compruebes la regla tú mismo. Cuando falta un dato importante, la herramienta da ámbar o rojo, nunca verde.</p>
+        <p>Última revisión: 22 de septiembre de 2026.</p>
       </div>
 
       <div className="sources-list">

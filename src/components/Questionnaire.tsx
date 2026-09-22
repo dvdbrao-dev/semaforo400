@@ -38,7 +38,12 @@ export function Questionnaire() {
   }, [submitted, complete, draft]);
 
   function update<K extends keyof LeadContext>(key: K, value: LeadContext[K]) {
-    setDraft((current) => ({ ...current, [key]: value }));
+    setDraft((current) => {
+      const next = { ...current, [key]: value };
+      // Si el origen es "me pidió que le contactara", la pregunta 4 no puede ser "No".
+      if (key === "origin" && value === "request") next.requestedContact = true;
+      return next;
+    });
     setSubmitted(false);
     track("question_answered", { question: key, value: String(value) });
   }
@@ -66,22 +71,18 @@ export function Questionnaire() {
   return (
     <section className="tool-section" id="herramienta">
       <div className="tool-intro">
-        <span className="kicker">LA HERRAMIENTA</span>
-        <h2>5 preguntas.<br />Una respuesta clara.</h2>
-        <p>No hace falta introducir nombres, teléfonos ni datos personales. Solo el contexto de la llamada.</p>
-        <div className="mini-features">
-          <span>✓ Sin registro</span>
-          <span>✓ Fuentes oficiales</span>
-          <span>✓ Resultado instantáneo</span>
-        </div>
+        <h2>Describe el contacto antes de marcar</h2>
+        <p>
+          No pedimos nombres ni teléfonos, solo el contexto: a quién llamas, qué vendes y de dónde sacaste el número.
+          No hay registro y el resultado sale al momento.
+        </p>
       </div>
 
       <div className="tool-panel">
         <div className="questions-card">
           <div className="questions-card__header">
             <div>
-              <span className="kicker">SEMÁFORO 400</span>
-              <h3>Describe la llamada</h3>
+              <h3>Tu llamada</h3>
             </div>
             <span className="privacy-chip">No guardamos teléfonos</span>
           </div>
@@ -98,7 +99,7 @@ export function Questionnaire() {
 
             <label className="question-row">
               <span className="question-number">2</span>
-              <span className="question-copy"><b>¿Qué vendes?</b><small>Algunos sectores tienen reglas adicionales.</small></span>
+              <span className="question-copy"><b>¿Qué vendes?</b><small>La energía tiene reglas propias más estrictas.</small></span>
               <select value={draft.sector ?? ""} onChange={(e) => update("sector", e.target.value as Sector)}>
                 <option value="" disabled>Selecciona</option>
                 {SECTOR_OPTIONS.map((option) => <option key={option.value} value={option.value}>{option.label}</option>)}
@@ -130,7 +131,7 @@ export function Questionnaire() {
           <div className="question-actions">
             <button type="button" className="text-button" onClick={reset}>Reiniciar</button>
             <button type="button" className="primary-button" disabled={!complete} onClick={calculate}>
-              Ver resultado <span>→</span>
+              Ver resultado
             </button>
           </div>
         </div>

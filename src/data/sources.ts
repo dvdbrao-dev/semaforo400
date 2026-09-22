@@ -42,7 +42,7 @@ export const LEGAL_SOURCES: Record<LegalSourceId, LegalSource> = {
     authority: "BOE",
     title: "Real Decreto 88/2026 — comercialización de energía eléctrica",
     url: "https://www.boe.es/buscar/act.php?id=BOE-A-2026-3212",
-    note: "Para consumidores persona física, la venta telefónica energética no solicitada tiene requisitos especialmente restrictivos.",
+    note: "Art. 13.y: si el consumidor es persona física, prohibidas las llamadas comerciales no solicitadas sin petición expresa, salvo interés legítimo. No aplica a empresas (personas jurídicas). Obligatorio grabar la llamada entera.",
   },
   CNMC_ENERGY_2026: {
     id: "CNMC_ENERGY_2026",

@@ -6,6 +6,7 @@ const host = process.env.NEXT_PUBLIC_POSTHOG_HOST;
 if (token && host) {
   posthog.init(token, {
     api_host: host,
+    persistence: "memory", // sin cookies ni localStorage: no hace falta banner de consentimiento
     defaults: "2026-05-30",
     autocapture: false,
     capture_pageview: true,

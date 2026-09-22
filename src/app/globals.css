@@ -11,3 +11,34 @@
 @media(max-width:900px){.page-shell{padding:0 16px 28px}.brand{width:188px}.hero{grid-template-columns:1fr;padding-top:10px}.hero__copy{padding:46px 4px 10px}.hero__visual{min-height:510px}.hero-float-card{right:8%;bottom:52px}.promo-shell{padding-top:22px}.promo-banner{border-radius:18px}.tool-panel{grid-template-columns:1fr}.questions-card,.result-card{min-height:auto}.how-grid,.number-notice,.sources-section{grid-template-columns:1fr}.section-heading--sources{position:static}}
 @media(max-width:620px){.page-shell{padding-inline:12px}.site-header{min-height:76px}.brand{width:150px;height:56px}.header-cta{font-size:0;width:44px;height:44px;padding:0}.header-cta span{font-size:18px;margin:0}.hero{min-height:auto}.hero h1{font-size:clamp(50px,16vw,76px)}.hero h1 span{font-size:.45em}.hero__lead{font-size:16px}.hero__visual{min-height:470px;transform:scale(.88);margin:-18px -28px 0}.hero-float-card{right:0;bottom:38px}.promo-shell{padding:18px 0 0}.promo-banner{border-radius:12px}.tool-section{padding:84px 0 50px}.tool-panel{padding:8px;border-radius:24px}.questions-card,.result-card{padding:18px;border-radius:19px}.questions-card__header{flex-direction:column}.question-row{grid-template-columns:34px 1fr}.question-row select,.question-row .segmented{grid-column:2}.number-notice{margin:0 0 84px;padding:28px 22px}.sources-section{padding:0 0 80px}.sources-list a{grid-template-columns:52px 1fr 20px}.footer{grid-template-columns:1fr;gap:10px}.footer img{width:150px}}
 @media(prefers-reduced-motion:reduce){*,*:before,*:after{scroll-behavior:auto!important;transition-duration:.01ms!important;animation-duration:.01ms!important}}
+
+/* ===== Capa sobria: quita los efectos típicos de plantilla y sube la legibilidad ===== */
+body{background:#061318}
+.hero:before,.hero:after,.traffic-aura,.how-grid article:after,.result-card:before{display:none}
+.hero h1{font-size:clamp(40px,4.8vw,68px);letter-spacing:-.035em;line-height:1.02}
+.hero__date{margin:0;color:var(--gold);font-size:15px;font-weight:650}
+.brand--text{display:grid;gap:2px;width:auto;height:auto}
+.brand--text b{font-size:19px;letter-spacing:-.02em}
+.brand--text small{font-size:12px;color:var(--muted)}
+.header-cta,.primary-button{background:var(--gold);box-shadow:none}
+.header-cta:hover,.primary-button:hover:not(:disabled),.secondary-button:hover,.site-nav a:hover{transform:none}
+.primary-button:hover:not(:disabled),.header-cta:hover{background:var(--gold2)}
+.promo-banner:hover{transform:none}
+.traffic-light{box-shadow:0 20px 60px rgba(0,0,0,.45)}
+.traffic-light__lamp--green.is-active,.hero__visual .traffic-light__lamp--green{box-shadow:0 0 18px rgba(38,247,137,.35)}
+.traffic-light__lamp--amber.is-active,.hero__visual .traffic-light__lamp--amber{box-shadow:0 0 18px rgba(255,174,31,.35)}
+.traffic-light__lamp--red.is-active,.hero__visual .traffic-light__lamp--red{box-shadow:0 0 18px rgba(255,65,72,.35)}
+.hero-float-card{backdrop-filter:none;background:var(--panel);box-shadow:none}
+.tool-panel{backdrop-filter:none;box-shadow:none}
+.questions-card,.result-card{background:var(--panel)}
+/* Tamaños mínimos: nada por debajo de 12px */
+.hero-float-card__row,.privacy-chip,.question-copy small,.authority-row small,.result-section__label,.result-sources a,.status-pill,.result-card__topline,.footer,.source-copy small,.number-notice__copy span{font-size:12px}
+.question-copy b{font-size:15px}
+.question-copy small,.source-copy small{color:#9db1b4}
+.result-card__hero p,.result-section li{font-size:14px;line-height:1.5}
+.result-disclaimer{font-size:13px;color:#c7d3d4;border-left:3px solid var(--gold);padding-left:10px}
+.result-promo{margin-top:20px;padding:16px;border-radius:14px;border:1px solid rgba(230,186,98,.3);position:relative;z-index:2}
+.result-promo p{margin:0 0 12px;font-size:14px;line-height:1.5;color:#d5e0e1}
+.result-promo a{display:inline-block;padding:10px 14px;border-radius:10px;background:var(--gold);color:#061015;font-weight:700;font-size:14px}
+.result-promo a:hover{background:var(--gold2)}
+@media(max-width:620px){.brand--text b{font-size:17px}.header-cta{font-size:13px;width:auto;height:auto;padding:10px 12px}}

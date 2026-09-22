@@ -1,6 +1,5 @@
 "use client";
 
-import Image from "next/image";
 import { motion } from "motion/react";
 import { track } from "@/lib/analytics";
 import { TrafficLight } from "./TrafficLight";
@@ -14,40 +13,35 @@ export function Hero() {
   return (
     <>
       <header className="site-header">
-        <a className="brand" href="#top" aria-label="Mejoradora Granada">
-          <Image
-            src="/logo-mejoradora-blanco.png"
-            alt="Mejoradora Granada"
-            width={260}
-            height={125}
-            priority
-          />
+        <a className="brand brand--text" href="#top" aria-label="Semáforo 400, inicio">
+          <b>Semáforo 400</b>
+          <small>por Mejoradora Granada</small>
         </a>
         <nav className="site-nav" aria-label="Navegación principal">
           <a href="#herramienta">Herramienta</a>
           <a href="#como-funciona">Cómo funciona</a>
           <a href="#fuentes">Fuentes</a>
         </nav>
-        <button type="button" className="header-cta" onClick={scrollToTool}>Probar herramienta <span>→</span></button>
+        <button type="button" className="header-cta" onClick={scrollToTool}>Comprobar una llamada</button>
       </header>
 
       <section className="hero" id="top">
         <div className="hero__copy">
-          <motion.span
-            className="kicker"
+          <motion.p
+            className="hero__date"
             initial={{ opacity: 0, y: 10 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.45 }}
           >
-            VENTAS MÁS SEGURAS · MENOS DUDAS
-          </motion.span>
+            {/* CAMBIAR_TRAS_17_OCTUBRE: pasar a "En vigor desde el 17 de octubre de 2026" */}
+            El 17 de octubre de 2026 cambian las reglas de las llamadas comerciales
+          </motion.p>
           <motion.h1
             initial={{ opacity: 0, y: 14 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.55, delay: 0.04 }}
           >
-            SEMÁFORO <em>400</em>
-            <span>¿Puedo llamar a este lead?</span>
+            ¿Puedo llamar a este lead?
           </motion.h1>
           <motion.p
             className="hero__lead"
@@ -55,7 +49,7 @@ export function Hero() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.55, delay: 0.1 }}
           >
-            Cinco preguntas. Un resultado visual. Fuentes oficiales para entender si una llamada comercial encaja mejor en verde, ámbar o rojo.
+            Contesta cinco preguntas sobre el contacto y te decimos si la llamada es verde, ámbar o roja, qué norma aplica y dónde comprobarlo en la AEPD, la CNMC o el BOE. No hace falta meter nombres ni teléfonos.
           </motion.p>
 
           <motion.div
@@ -65,7 +59,7 @@ export function Hero() {
             transition={{ duration: 0.55, delay: 0.16 }}
           >
             <button type="button" className="primary-button primary-button--hero" onClick={scrollToTool}>
-              Probar herramienta <span>→</span>
+              Comprobar una llamada
             </button>
             <a className="secondary-button" href="#fuentes" onClick={() => track("cta_sources_click", { location: "hero" })}>
               Ver fuentes oficiales

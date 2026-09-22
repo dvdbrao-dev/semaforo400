@@ -2,8 +2,7 @@ export function Number400Notice() {
   return (
     <section className="number-notice">
       <div>
-        <span className="kicker">EL 400 ESTÁ LLEGANDO</span>
-        <h2>La numeración comercial cambia.</h2>
+        <h2>Qué cambia con el 400</h2>
       </div>
       <div className="number-notice__copy">
         <p>
