@@ -60,7 +60,7 @@ export function ResultCard({ decision }: Props) {
       <div className="result-section">
         <span className="result-section__label">ANTES DE LLAMAR</span>
         <ul>
-          {decision.checks.slice(0, 6).map((check) => <li key={check}>{check}</li>)}
+          {decision.checks.map((check) => <li key={check}>{check}</li>)}
         </ul>
       </div>
 

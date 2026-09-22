@@ -69,4 +69,19 @@ describe("evaluateLead", () => {
     const result = evaluateLead({ ...base, target: "company", sector: "energy", origin: "public-business-web" });
     expect(result.status).toBe("green");
   });
+
+  it("ningún resultado supera 8 comprobaciones (la tarjeta las muestra todas)", () => {
+    const targets = ["consumer", "self-employed", "company"] as const;
+    const sectors = ["energy", "other"] as const;
+    const origins = ["request", "current-client", "former-client", "public-business-web", "referral", "external-database", "other"] as const;
+    for (const target of targets)
+      for (const sector of sectors)
+        for (const origin of origins)
+          for (const requestedContact of [true, false])
+            for (const previousRelationship of [true, false]) {
+              const r = evaluateLead({ target, sector, origin, requestedContact, previousRelationship });
+              expect(r.checks.length).toBeLessThanOrEqual(8);
+              expect(r.checks.some((c) => c.includes("400"))).toBe(true);
+            }
+  });
 });
