@@ -12,22 +12,36 @@ export function PromoBanner() {
         href={PROMO_URL}
         target="_blank"
         rel="noreferrer"
-        onClick={() =>
-          track("promo_click", {
-            campaign: PROMO_CAMPAIGN,
-            destination: "whatsapp",
-          })
-        }
+        onClick={() => track("promo_click", { placement: "desktop_banner", campaign: PROMO_CAMPAIGN })}
       >
         <Image
-          className="promo-banner__image"
           src="/banner-colabora-mejoradora.webp"
-          alt="Colabora con Mejoradora Granada: gana más con los clientes que ya tienes"
+          alt="Colabora con Mejoradora Granada. Gana más con los clientes que ya tienes. Nueva línea de ingresos en energía y telecom. Sin costes, sin ser experto. Quiero colaborar."
           width={1600}
           height={245}
-          sizes="(max-width: 620px) calc(100vw - 24px), (max-width: 900px) calc(100vw - 52px), 1420px"
+          loading="eager"
+          sizes="(max-width: 1200px) 100vw, 1280px"
         />
       </a>
+
+      <div className="promo-mobile">
+        <p className="promo-mobile__eyebrow">Colabora con Mejoradora Granada</p>
+        <h2>Gana más con los clientes que ya tienes.</h2>
+        <p>Nueva línea de ingresos en energía y telecom.<br />Sin costes. Sin ser experto.</p>
+        <ul>
+          <li>Comisión por venta</li>
+          <li>Herramientas y soporte</li>
+          <li>Tú aportas el contacto, nosotros hacemos el resto.</li>
+        </ul>
+        <a
+          href={PROMO_URL}
+          target="_blank"
+          rel="noreferrer"
+          onClick={() => track("promo_click", { placement: "mobile_card", campaign: PROMO_CAMPAIGN })}
+        >
+          Quiero colaborar
+        </a>
+      </div>
     </section>
   );
 }

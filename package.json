@@ -9,7 +9,6 @@
     "test": "vitest run"
   },
   "dependencies": {
-    "motion": "^12.23.12",
     "next": "^16.0.0",
     "posthog-js": "^1.433.1",
     "react": "^19.2.0",

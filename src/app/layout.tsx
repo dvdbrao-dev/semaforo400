@@ -2,8 +2,8 @@ import type { Metadata } from "next";
 import "./globals.css";
 
 export const metadata: Metadata = {
-  title: "Semáforo 400",
-  description: "Herramienta orientativa para revisar el contexto de una llamada comercial."
+  title: "Semáforo 400 | Mejoradora Granada",
+  description: "Evalúa el contexto de una llamada comercial en menos de 30 segundos con criterios y fuentes oficiales."
 };
 
 export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
