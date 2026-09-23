@@ -13,7 +13,7 @@ export function Hero() {
     <>
       <header className="site-header">
         <a className="brand" href="#top" aria-label="Mejoradora Granada, inicio">
-          <Image src="/logo-mejoradora-blanco.png" alt="Mejoradora Granada" width={188} height={90} loading="eager" />
+          <Image src="/logo-mejoradora-blanco.png" alt="Mejoradora Granada" width={188} height={90} loading="eager" style={{ width: "100%", height: "auto" }} />
         </a>
         <nav className="site-nav" aria-label="Navegación principal">
           <a href="#herramienta">Herramienta</a>

@@ -20,6 +20,7 @@ export function PromoBanner() {
           width={1600}
           height={245}
           loading="eager"
+          style={{ width: "100%", height: "auto" }}
           sizes="(max-width: 1200px) 100vw, 1280px"
         />
       </a>
