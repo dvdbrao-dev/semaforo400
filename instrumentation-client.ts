@@ -18,7 +18,7 @@ if (token && host) {
     disable_session_recording: true,
     mask_all_element_attributes: true,
     mask_all_text: true,
-    person_profiles: "never",
+    person_profiles: "identified_only",
     property_denylist: [
       "name",
       "email",

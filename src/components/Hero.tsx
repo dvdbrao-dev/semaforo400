@@ -1,85 +1,45 @@
 "use client";
 
-import { motion } from "motion/react";
+import Image from "next/image";
 import { track } from "@/lib/analytics";
-import { TrafficLight } from "./TrafficLight";
 
 export function Hero() {
-  function scrollToTool() {
-    track("cta_try_click", { location: "hero" });
+  function scrollToTool(location: string) {
+    track("cta_try_click", { location });
     document.getElementById("herramienta")?.scrollIntoView({ behavior: "smooth", block: "start" });
   }
 
   return (
     <>
       <header className="site-header">
-        <a className="brand brand--text" href="#top" aria-label="Semáforo 400, inicio">
-          <b>Semáforo 400</b>
-          <small>por Mejoradora Granada</small>
+        <a className="brand" href="#top" aria-label="Mejoradora Granada, inicio">
+          <Image src="/logo-mejoradora-blanco.png" alt="Mejoradora Granada" width={188} height={90} loading="eager" style={{ width: "100%", height: "auto" }} />
         </a>
         <nav className="site-nav" aria-label="Navegación principal">
           <a href="#herramienta">Herramienta</a>
-          <a href="#como-funciona">Cómo funciona</a>
-          <a href="#fuentes">Fuentes</a>
+          <a href="#criterios">Criterios</a>
+          <a href="#fuentes" onClick={() => track("cta_sources_click", { location: "header" })}>Fuentes</a>
         </nav>
-        <button type="button" className="header-cta" onClick={scrollToTool}>Comprobar una llamada</button>
+        <button type="button" className="header-cta" onClick={() => scrollToTool("header")}>Probar herramienta</button>
       </header>
 
-      <section className="hero" id="top">
+      <section className="hero" id="top" aria-labelledby="hero-title">
         <div className="hero__copy">
-          <motion.p
-            className="hero__date"
-            initial={{ opacity: 0, y: 10 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.45 }}
-          >
-            {/* CAMBIAR_TRAS_17_OCTUBRE: pasar a "En vigor desde el 17 de octubre de 2026" */}
-            El 17 de octubre de 2026 cambian las reglas de las llamadas comerciales
-          </motion.p>
-          <motion.h1
-            initial={{ opacity: 0, y: 14 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.55, delay: 0.04 }}
-          >
-            ¿Puedo llamar a este lead?
-          </motion.h1>
-          <motion.p
-            className="hero__lead"
-            initial={{ opacity: 0, y: 12 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.55, delay: 0.1 }}
-          >
-            Contesta cinco preguntas sobre el contacto y te decimos si la llamada es verde, ámbar o roja, qué norma aplica y dónde comprobarlo en la AEPD, la CNMC o el BOE. No hace falta meter nombres ni teléfonos.
-          </motion.p>
-
-          <motion.div
-            className="hero__actions"
-            initial={{ opacity: 0, y: 12 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.55, delay: 0.16 }}
-          >
-            <button type="button" className="primary-button primary-button--hero" onClick={scrollToTool}>
-              Comprobar una llamada
-            </button>
-            <a className="secondary-button" href="#fuentes" onClick={() => track("cta_sources_click", { location: "hero" })}>
-              Ver fuentes oficiales
-            </a>
-          </motion.div>
-
-          <div className="authority-row" aria-label="Fuentes oficiales">
-            <span><b>BOE</b><small>Normativa</small></span>
-            <span><b>CNMC</b><small>Numeración 400</small></span>
-            <span><b>AEPD</b><small>Protección de datos</small></span>
+          <p className="eyebrow">Herramienta para equipos comerciales</p>
+          <h1 id="hero-title">Semáforo 400</h1>
+          <p className="hero__subhead">Evalúa una llamada comercial en menos de 30 segundos.</p>
+          <p className="hero__lead">Cinco preguntas para revisar el contexto de un contacto comercial y obtener una orientación clara basada en criterios y fuentes oficiales.</p>
+          <div className="hero__actions">
+            <button type="button" className="primary-button" onClick={() => scrollToTool("hero")}>Probar herramienta</button>
+            <a className="secondary-button" href="#criterios">Ver criterios</a>
           </div>
+          <p className="authority-row">Basado en fuentes oficiales <span>AEPD · CNMC · BOE</span></p>
         </div>
-
-        <div className="hero__visual" aria-hidden="true">
-          <TrafficLight />
-          <div className="hero-float-card">
-            <span className="hero-float-card__row hero-float-card__row--green"><i /> <b>VERDE</b><small>encaja en principio</small></span>
-            <span className="hero-float-card__row hero-float-card__row--amber"><i /> <b>ÁMBAR</b><small>revisa antes</small></span>
-            <span className="hero-float-card__row hero-float-card__row--red"><i /> <b>ROJO</b><small>no llames todavía</small></span>
-          </div>
+        <div className="hero__preview" aria-hidden="true">
+          <span>Una respuesta con contexto</span>
+          <div className="hero__preview-states"><i /><i /><i /></div>
+          <strong>Verde, ámbar o rojo.</strong>
+          <p>Motivos, comprobaciones y fuentes para revisar antes de llamar.</p>
         </div>
       </section>
     </>

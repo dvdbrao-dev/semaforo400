@@ -1,9 +1,9 @@
 export function HowItWorks() {
   return (
-    <section className="how-section" id="como-funciona">
+    <section className="how-section" id="criterios">
       <div className="section-heading">
-        <h2>Cómo decide el semáforo</h2>
-        <p>Aplica reglas fijas escritas a partir de las fuentes oficiales. No hay una IA interpretando tu caso: las mismas respuestas dan siempre el mismo resultado.</p>
+        <h2>Criterios claros, resultado orientativo</h2>
+        <p>El motor aplica reglas fijas basadas en fuentes oficiales. Las mismas respuestas dan siempre el mismo resultado.</p>
       </div>
       <div className="how-grid">
         <article>
@@ -22,6 +22,7 @@ export function HowItWorks() {
           <p>Verde, ámbar o rojo, con el motivo, comprobaciones pendientes y fuentes que puedes abrir.</p>
         </article>
       </div>
+      <p className="number-note"><b>Numeración 400.</b> Desde el 17 de octubre de 2026, comprueba si tu empresa debe usar este rango para llamadas comerciales.</p>
     </section>
   );
 }

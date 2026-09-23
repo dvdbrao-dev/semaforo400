@@ -8,7 +8,7 @@ export function SourcesSection() {
     <section className="sources-section" id="fuentes">
       <div className="section-heading section-heading--sources">
         <h2>Fuentes oficiales</h2>
-        <p>Cada resultado enlaza a estas páginas para que compruebes la regla tú mismo. Cuando falta un dato importante, la herramienta da ámbar o rojo, nunca verde.</p>
+        <p>Cada resultado enlaza a estas páginas para que compruebes la regla y las condiciones aplicables a tu caso.</p>
         <p>Última revisión: 22 de septiembre de 2026.</p>
       </div>
 
